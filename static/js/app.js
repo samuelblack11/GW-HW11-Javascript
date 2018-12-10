@@ -4,6 +4,7 @@ var tableData = data;
 // YOUR CODE HERE!
 // Get a reference to the table body
 var tbody = d3.select("tbody");
+var table_element = d3.select("table");
 
 
 // Use d3 to append one table row (tr) for each sighting object
@@ -53,7 +54,10 @@ var tbody = d3.select("tbody");
 // Select the submit button
 var submit = d3.select("#filter-btn");
 
-submit.on("click", function() {
+submit.on("click", function() 
+
+
+{
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
@@ -155,9 +159,78 @@ if (keys.includes("sighting.durationMinutes")){
 }
 
 console.log(filteredData)
+
+//var table_div = d3.select("tbody")
+//var tale_div = filteredData
+
+ // CLEAR TABLE CONTENTS BEFORE APPENDING FILTERED DATA
+data.forEach(function(UFO) {
+  //console.log(UFO);
+  var row = tbody.remove("tr");
+//for (i = 1; i <data.length; i++){
+//document.getElementById("ufo-table").deleteRow(i)
+});
+
+
+table_element.append("tbody")
+var tbody_2 = d3.select("tbody");
+
+
+//////////////////
+
+
+// Use d3 to append one table row (tr) for each sighting object
+ filteredData.forEach(function(UFO) {
+   //console.log(UFO);
+   var row = tbody_2.append("tr");
+ });
+
+ // Step 3:  Use `Object.entries` to console.log each value
+ filteredData.forEach(function(UFO) {
+   //console.log(UFO);
+   var row = tbody_2.append("tr");
+
+   Object.entries(UFO).forEach(function([key, value]) {
+    // console.log(key, value);
+   });
+ });
+
+  // Step 4: Use d3 to append 1 cell per value
+ filteredData.forEach(function(UFO) {
+   //console.log(UFO);
+   var row = tbody_2.append("tr");
+
+   Object.entries(UFO).forEach(function([key, value]) {
+     //console.log(key, value);
+     // Append a cell to the row for each value
+     // in the weather report object
+     var cell = tbody_2.append("td");
+   });
+ });
+
+ // Step 5: Use d3 to update each cell's text with
+ // UFO sighting values (weekday, date, high, low)
+ filteredData.forEach(function(UFO) {
+   //console.log(UFO);
+   var row = tbody_2.append("tr");
+   Object.entries(UFO).forEach(function([key, value]) {
+    // console.log(key, value);
+     // Append a cell to the row for each value
+     // in the weather report object
+     var cell = tbody_2.append("td");
+     cell.text(value);
+   });
+ });
+
+
 }
 
 
 theFUNNEL()
 
-});
+// onchange update <table id="ufo-table" to filteredData
+
+}
+
+
+);
