@@ -31,7 +31,6 @@ var table_element = d3.select("table");
    Object.entries(UFO).forEach(function([key, value]) {
      //console.log(key, value);
      // Append a cell to the row for each value
-     // in the weather report object
      var cell = tbody.append("td");
    });
  });
@@ -202,20 +201,18 @@ var tbody_2 = d3.select("tbody");
    Object.entries(UFO).forEach(function([key, value]) {
      //console.log(key, value);
      // Append a cell to the row for each value
-     // in the weather report object
      var cell = tbody_2.append("td");
    });
  });
 
  // Step 5: Use d3 to update each cell's text with
- // UFO sighting values (weekday, date, high, low)
+ // UFO sighting values
  filteredData.forEach(function(UFO) {
    //console.log(UFO);
    var row = tbody_2.append("tr");
    Object.entries(UFO).forEach(function([key, value]) {
     // console.log(key, value);
      // Append a cell to the row for each value
-     // in the weather report object
      var cell = tbody_2.append("td");
      cell.text(value);
    });
